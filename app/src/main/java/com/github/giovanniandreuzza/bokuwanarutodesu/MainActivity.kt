@@ -70,7 +70,6 @@ class MainActivity : AppCompatActivity() {
                 ninjaList.add(Pair(1, true))
                 notifyDataSetChanged()
             }
-
             ninjaViewModel.getNinja(spinnerNinja.selectedItem as Int)
         }
 
