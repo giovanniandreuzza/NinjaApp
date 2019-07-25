@@ -1,23 +1,21 @@
 package com.github.giovanniandreuzza.bokuwanarutodesu
 
 import android.Manifest
-import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
 import android.util.Log
+import android.widget.ArrayAdapter
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.github.giovanniandreuzza.data.NinjaRepositoryImpl
 import com.github.giovanniandreuzza.data.GetNinjaUseCase
-import kotlinx.android.synthetic.main.activity_main.*
-import android.widget.ArrayAdapter
-import androidx.core.app.ActivityCompat
-import androidx.core.view.isVisible
-import androidx.lifecycle.Observer
+import com.github.giovanniandreuzza.data.NinjaRepositoryImpl
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
+import kotlinx.android.synthetic.main.activity_main.*
 import okhttp3.ResponseBody
 import java.io.*
 
@@ -102,7 +100,7 @@ class MainActivity : AppCompatActivity() {
         try {
             // todo change the file location/name according to your needs
             val futureStudioIconFile =
-                File(getExternalFilesDir(null).toString() + File.separator + "Episodio_$ep.mp4")
+                File(Environment.getExternalStorageDirectory().absolutePath + File.separator + "Episodio_$ep.mp4")
 
             var inputStream: InputStream? = null
             var outputStream: OutputStream? = null
